@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    // (Redux) store as an environment object
+    // (Redux) store as an environment object to be able to update
     @EnvironmentObject var store: ThreeDucksStore
     
+    // render screens depending on game (Redux) state
     var body: some View {
         switch store.state.gameState {
         case .title:

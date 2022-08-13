@@ -7,7 +7,7 @@
 
 import Foundation
 
-// alias for clearer context when using this class
+// using Store class with ThreeDucks context
 typealias ThreeDucksStore = Store<ThreeDucksState>
 
 class Store<ThreeDucksState>: ObservableObject {
