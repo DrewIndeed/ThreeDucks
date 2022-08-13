@@ -8,9 +8,9 @@
 import Foundation
 
 // using Store class with ThreeDucks context
-typealias ThreeDucksStore = Store<ThreeDucksState>
+typealias ThreeDucksStore = Store<ThreeDucksState, ThreeDucksAction>
 
-class Store<ThreeDucksState>: ObservableObject {
+class Store<State, Action>: ObservableObject {
     // private(set) = setter is private, because only allow to update this through Reduc
     @Published private(set) var state: ThreeDucksState
     

@@ -7,6 +7,8 @@
 
 import Foundation
 
+struct State {}
+
 struct ThreeDucksState{
-  var gameState: GameState = .started
+  var gameState: GameState = .title
 }
