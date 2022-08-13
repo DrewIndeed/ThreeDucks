@@ -22,6 +22,8 @@
 		8F7C8C6928A750D20007B9E5 /* duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8F7C8C6728A750D20007B9E5 /* duck.mp3 */; };
 		8F7C8C6B28A751380007B9E5 /* CardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C6A28A751380007B9E5 /* CardGridView.swift */; };
 		8F7C8C6D28A751BE0007B9E5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C6C28A751BE0007B9E5 /* CardView.swift */; };
+		8F7C8C6F28A75DE20007B9E5 /* CardFrontContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C6E28A75DE20007B9E5 /* CardFrontContentView.swift */; };
+		8F7C8C7128A75E4D0007B9E5 /* CardBackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C7028A75E4D0007B9E5 /* CardBackContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		8F7C8C6728A750D20007B9E5 /* duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = duck.mp3; sourceTree = "<group>"; };
 		8F7C8C6A28A751380007B9E5 /* CardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGridView.swift; sourceTree = "<group>"; };
 		8F7C8C6C28A751BE0007B9E5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8F7C8C6E28A75DE20007B9E5 /* CardFrontContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrontContentView.swift; sourceTree = "<group>"; };
+		8F7C8C7028A75E4D0007B9E5 /* CardBackContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				8F7C8C5F28A750410007B9E5 /* GameScreenView.swift */,
 				8F7C8C6A28A751380007B9E5 /* CardGridView.swift */,
 				8F7C8C6C28A751BE0007B9E5 /* CardView.swift */,
+				8F7C8C6E28A75DE20007B9E5 /* CardFrontContentView.swift */,
+				8F7C8C7028A75E4D0007B9E5 /* CardBackContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			files = (
 				8F7C8C5E28A74DAA0007B9E5 /* DificultyLevelModel.swift in Sources */,
 				8F7C8C6428A750AF0007B9E5 /* AnimalModel.swift in Sources */,
+				8F7C8C6F28A75DE20007B9E5 /* CardFrontContentView.swift in Sources */,
 				8F7C8C5928A6994E0007B9E5 /* Store.swift in Sources */,
 				8F7C8C5C28A69CBE0007B9E5 /* TitleScreenView.swift in Sources */,
 				8F7C8C4728A696300007B9E5 /* ContentView.swift in Sources */,
@@ -205,6 +212,7 @@
 				8F7C8C4528A696300007B9E5 /* AppMain.swift in Sources */,
 				8F7C8C6B28A751380007B9E5 /* CardGridView.swift in Sources */,
 				8F7C8C5428A698BF0007B9E5 /* ThreeDucksState.swift in Sources */,
+				8F7C8C7128A75E4D0007B9E5 /* CardBackContentView.swift in Sources */,
 				8F7C8C6D28A751BE0007B9E5 /* CardView.swift in Sources */,
 				8F7C8C5728A6990D0007B9E5 /* GameStateModel.swift in Sources */,
 			);
