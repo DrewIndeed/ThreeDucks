@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    // (Redux) store as an environment object
+    @EnvironmentObject var store: ThreeDucksStore
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        switch store.state.gameState {
+        case .title:
+            TitleScreenView()
+        case .started:
+            Text("Game Screen")
+        case .won:
+            Text("Won Screen")
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(
+            ThreeDucksStore(
+                initialState: ThreeDucksState()
+            )
+        )
     }
 }
