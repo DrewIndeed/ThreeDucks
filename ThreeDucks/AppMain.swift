@@ -14,7 +14,8 @@ struct AppMain: App {
             ContentView()
                 .environmentObject(
                     ThreeDucksStore(
-                        initialState: ThreeDucksState()
+                        initialState: ThreeDucksState(),
+                        initialReducer: threeDucksReducer
                     )
                 )
         }

@@ -25,6 +25,7 @@
 		8F7C8C6F28A75DE20007B9E5 /* CardFrontContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C6E28A75DE20007B9E5 /* CardFrontContentView.swift */; };
 		8F7C8C7128A75E4D0007B9E5 /* CardBackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C7028A75E4D0007B9E5 /* CardBackContentView.swift */; };
 		8F7C8C7528A766890007B9E5 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C7428A766890007B9E5 /* Action.swift */; };
+		8F7C8C7728A798830007B9E5 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C8C7628A798830007B9E5 /* Reducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		8F7C8C6E28A75DE20007B9E5 /* CardFrontContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrontContentView.swift; sourceTree = "<group>"; };
 		8F7C8C7028A75E4D0007B9E5 /* CardBackContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackContentView.swift; sourceTree = "<group>"; };
 		8F7C8C7428A766890007B9E5 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		8F7C8C7628A798830007B9E5 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				8F7C8C5328A698BF0007B9E5 /* State.swift */,
 				8F7C8C5828A6994E0007B9E5 /* Store.swift */,
 				8F7C8C7428A766890007B9E5 /* Action.swift */,
+				8F7C8C7628A798830007B9E5 /* Reducer.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				8F7C8C5E28A74DAA0007B9E5 /* DificultyLevelModel.swift in Sources */,
 				8F7C8C6428A750AF0007B9E5 /* AnimalModel.swift in Sources */,
+				8F7C8C7728A798830007B9E5 /* Reducer.swift in Sources */,
 				8F7C8C6F28A75DE20007B9E5 /* CardFrontContentView.swift in Sources */,
 				8F7C8C5928A6994E0007B9E5 /* Store.swift in Sources */,
 				8F7C8C5C28A69CBE0007B9E5 /* TitleScreenView.swift in Sources */,

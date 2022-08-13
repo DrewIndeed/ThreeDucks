@@ -28,7 +28,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(
             ThreeDucksStore(
-                initialState: ThreeDucksState()
+                initialState: ThreeDucksState(),
+                initialReducer: threeDucksReducer
             )
         )
     }
