@@ -15,7 +15,8 @@ struct AppMain: App {
                 .environmentObject(
                     ThreeDucksStore(
                         initialState: ThreeDucksState(),
-                        initialReducer: threeDucksReducer
+                        initialReducer: threeDucksReducer,
+                        initialMiddlewares: [gameLogic]
                     )
                 )
         }

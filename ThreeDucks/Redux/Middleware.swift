@@ -46,6 +46,10 @@ let gameLogic: Middleware<ThreeDucksState, ThreeDucksAction> = { state, action i
             } else {
                 // send action
                 return Just(.unFlipSelectedCards)
+                // need this line bc: If you get a match, you'll see the flipped cards stay flipped.
+                // Unfortunately, you'll also notice that if they don't match,
+                // they unflip so fast you don't get to see the second card
+                    .delay(for: 1, scheduler: DispatchQueue.main)
                     .eraseToAnyPublisher()
             }
         }

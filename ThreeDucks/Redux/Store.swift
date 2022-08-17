@@ -7,18 +7,40 @@
 
 import Foundation
 
+// To call the middleware closure when dispatching an action
+// STEP 1
+import Combine
+
 // using Store class with ThreeDucks context
 typealias ThreeDucksStore = Store<ThreeDucksState, ThreeDucksAction>
 
 class Store<State, Action>: ObservableObject {
     // private(set) = setter is private, because only allow to update this through Redux
     @Published private(set) var state: ThreeDucksState
+    
     private let reducer: Reducer<ThreeDucksState, ThreeDucksAction>
+    
+    private let middlewares: [Middleware<ThreeDucksState, ThreeDucksAction>]
+    // To call the middleware closure when dispatching an action
+    // STEP 2: to save publisher subscriptions
+    private var subscriptions: Set<AnyCancellable> = []
     
     // internal work of the store for dispatching actions
     private func dispatchToUpdateState(_ currentState: ThreeDucksState, _ action: ThreeDucksAction) {
         // generate a new state using the reducer
         let newState = reducer(currentState, action)
+        
+        // 1. loop through all of the store's middlewares.
+        middlewares.forEach { middleware in
+            // 2. call the middleware closure to obtain the returned publisher
+            let publisher = middleware(newState, action)
+            
+            // 3. Make sure to receive the output on the main queue and send the actions to dispatch func
+            publisher
+                .receive(on: DispatchQueue.main)
+                .sink(receiveValue: dispatchToQueueActions)
+                .store(in: &subscriptions)
+        }
         
         // update the store's state to the new state
         state = newState
@@ -44,9 +66,11 @@ class Store<State, Action>: ObservableObject {
     init(
         initialState: ThreeDucksState,
         // @escaping because Reducer will go out of scope when called
-        initialReducer: @escaping Reducer<ThreeDucksState, ThreeDucksAction>
+        initialReducer: @escaping Reducer<ThreeDucksState, ThreeDucksAction>,
+        initialMiddlewares: [Middleware<ThreeDucksState, ThreeDucksAction>] = []
     ) {
         self.state = initialState
         self.reducer = initialReducer
+        self.middlewares = initialMiddlewares
     }
 }

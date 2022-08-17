@@ -29,7 +29,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(
             ThreeDucksStore(
                 initialState: ThreeDucksState(),
-                initialReducer: threeDucksReducer
+                initialReducer: threeDucksReducer,
+                initialMiddlewares: [gameLogic]
             )
         )
     }
