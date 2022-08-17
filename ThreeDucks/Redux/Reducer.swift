@@ -18,6 +18,8 @@ let threeDucksReducer: Reducer<ThreeDucksState, ThreeDucksAction> = { state, act
     switch action {
     case .startGame:
         mutatingState.gameState = .started
+    case .endGame:
+        mutatingState.gameState = .title
     }
     
     // return newly updated state

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GameScreenView: View {
+    // (Redux) store to use Redux mechanism
+    @EnvironmentObject var store: ThreeDucksStore
+    
     let cards = [
         CardModel(animal: .bat),
         CardModel(animal: .bat),
@@ -28,6 +31,7 @@ struct GameScreenView: View {
             // give up button
             Button {
                 // Action
+                store.dispatchToQueueActions(.endGame)
             } label: {
                 HStack {
                     Image(systemName: "hand.point.left.fill")

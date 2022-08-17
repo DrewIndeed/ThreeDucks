@@ -10,5 +10,5 @@ import Foundation
 enum Action {}
 
 enum ThreeDucksAction {
-  case startGame
+  case startGame, endGame
 }
