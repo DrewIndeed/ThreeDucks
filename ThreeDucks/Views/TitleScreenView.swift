@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TitleScreenView: View {
+    // (Redux) store to use Redux mechanism
+    @EnvironmentObject var store: ThreeDucksStore
+    
     var body: some View {
         VStack(alignment: .center, spacing: 32) {
             Spacer()
@@ -16,7 +19,8 @@ struct TitleScreenView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button("New Game") {
-                // action
+                // dispatch action for New Game
+                store.dispatchToQueueActions(.startGame)
             }
             .font(.headline)
             .foregroundColor(.white)

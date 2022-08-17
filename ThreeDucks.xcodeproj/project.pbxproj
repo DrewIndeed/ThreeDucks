@@ -87,7 +87,6 @@
 				8F7C8C5528A698F60007B9E5 /* Models */,
 				8F7C8C5228A698930007B9E5 /* Redux */,
 				8F7C8C4428A696300007B9E5 /* AppMain.swift */,
-				8F7C8C4628A696300007B9E5 /* ContentView.swift */,
 				8F7C8C4A28A696320007B9E5 /* Preview Content */,
 			);
 			path = ThreeDucks;
@@ -126,6 +125,7 @@
 		8F7C8C5A28A69C9A0007B9E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F7C8C4628A696300007B9E5 /* ContentView.swift */,
 				8F7C8C5B28A69CBE0007B9E5 /* TitleScreenView.swift */,
 				8F7C8C5F28A750410007B9E5 /* GameScreenView.swift */,
 				8F7C8C6A28A751380007B9E5 /* CardGridView.swift */,
