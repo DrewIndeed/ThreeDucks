@@ -38,8 +38,10 @@ let threeDucksReducer: Reducer<ThreeDucksState, ThreeDucksAction> = { state, act
         // reset selected cards and move count
         mutatingState.selectedCards = []
         mutatingState.moves = 0
+        
     case .endGame:
         mutatingState.gameState = .title
+        
     case .flipCard(let id):
         // 1. make sure there are 2 cards selected at a time
         guard mutatingState.selectedCards.count < 2 else {break}
@@ -72,6 +74,29 @@ let threeDucksReducer: Reducer<ThreeDucksState, ThreeDucksAction> = { state, act
         
         // INCREMENT MOVE
         mutatingState.moves += 1
+        
+    case .unFlipSelectedCards:
+        // 1. array of ids of the selected cards
+        let selectedIDs = mutatingState.selectedCards.map { $0.id }
+        
+        // 2. array of all cards
+        let cards: [CardModel] = mutatingState.cards.map { card in
+            // 2.1 if the target card's id is in selectedIDs array
+            guard selectedIDs.contains(card.id) else {return card}
+            
+            // 2.2 get the info, make a copy, set isFlipped back to false
+            return CardModel(id: card.id, animal: card.animal, isFlipped: false)
+        }
+        
+        // empty selected cards array
+        mutatingState.selectedCards = []
+        
+        // set state cards array as the updated one
+        mutatingState.cards = cards
+        
+    case .clearSelectedCards:
+        // empty selected cards array
+        mutatingState.selectedCards = []
     }
     
     // return newly updated state
