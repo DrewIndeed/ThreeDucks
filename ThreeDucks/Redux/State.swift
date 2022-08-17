@@ -10,5 +10,9 @@ import Foundation
 struct State {}
 
 struct ThreeDucksState{
-  var gameState: GameState = .title
+    var gameState: GameState = .title
+    var cards: [CardModel] = []
+    
+    var selectedCards: [CardModel] = []
+    var moves: Int = 0
 }

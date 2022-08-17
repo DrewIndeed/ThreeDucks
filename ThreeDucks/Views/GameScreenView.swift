@@ -11,21 +11,6 @@ struct GameScreenView: View {
     // (Redux) store to use Redux mechanism
     @EnvironmentObject var store: ThreeDucksStore
     
-    let cards = [
-        CardModel(animal: .bat),
-        CardModel(animal: .bat),
-        CardModel(animal: .ducks),
-        CardModel(animal: .ducks),
-        CardModel(animal: .bear),
-        CardModel(animal: .bear),
-        CardModel(animal: .pelican),
-        CardModel(animal: .pelican),
-        CardModel(animal: .horse),
-        CardModel(animal: .horse),
-        CardModel(animal: .elephant),
-        CardModel(animal: .elephant)
-    ].shuffled()
-    
     var body: some View {
         VStack(alignment: .leading) {
             // give up button
@@ -43,12 +28,13 @@ struct GameScreenView: View {
             
             // cards grid
             Spacer()
-            CardGridView(cards: cards)
+            // adjust to read the cards from the store instead of the view local data
+            CardGridView(cards: store.state.cards)
                 .padding(8)
             
             // move count
             Spacer()
-            Text("Moves: 0")
+            Text("Moves: \(store.state.moves)")
                 .font(.subheadline)
                 .foregroundColor(.purple)
                 .padding()

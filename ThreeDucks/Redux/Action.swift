@@ -10,5 +10,7 @@ import Foundation
 enum Action {}
 
 enum ThreeDucksAction {
-  case startGame, endGame
+    case startGame
+    case endGame
+    case flipCard(UUID)
 }

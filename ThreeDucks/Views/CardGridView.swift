@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CardGridView: View {
+    // (Redux) store to use Redux mechanism
+    @EnvironmentObject var store: ThreeDucksStore
+    
     // array of cards
     var cards: [CardModel]
     
@@ -28,6 +31,9 @@ struct CardGridView: View {
             ForEach(cards) { card in
                 CardView(card: card)
                     .frame(width: 100, height: 120)
+                    .onTapGesture {
+                        store.dispatchToQueueActions(.flipCard(card.id))
+                    }
             }
         }
     }
