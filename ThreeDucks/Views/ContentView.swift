@@ -19,7 +19,7 @@ struct ContentView: View {
         case .started:
             GameScreenView()
         case .won:
-            Text("Won Screen")
+            GameWinScreenView()
         }
     }
 }

@@ -34,6 +34,17 @@ typealias Middleware<State, Action> = (State, Action) -> AnyPublisher<Action, Ne
 let gameLogic: Middleware<ThreeDucksState, ThreeDucksAction> = { state, action in
     switch action {
     case .flipCard: // INTERCEPT every "flipCard" ACTION
+        // CHECK IF HAS WON
+        // 1. array of flipped cards
+        let flippedCards = state.cards.filter { $0.isFlipped }
+        // 2. if number of flipped cards = number of total cards
+        if flippedCards.count == state.cards.count {
+          // send action
+          return Just(.winGame)
+            .delay(for: 1, scheduler: DispatchQueue.main)
+            .eraseToAnyPublisher()
+        }
+        
         let selectedCards = state.selectedCards
         
         // 1. check if the number of selected cards is 2
