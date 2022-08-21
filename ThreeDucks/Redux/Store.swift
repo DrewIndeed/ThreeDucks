@@ -16,17 +16,17 @@ typealias ThreeDucksStore = Store<ThreeDucksState, ThreeDucksAction>
 
 class Store<State, Action>: ObservableObject {
     // private(set) = setter is private, because only allow to update this through Redux
-    @Published private(set) var state: ThreeDucksState
+    @Published private(set) var state: State
     
-    private let reducer: Reducer<ThreeDucksState, ThreeDucksAction>
+    private let reducer: Reducer<State, Action>
     
-    private let middlewares: [Middleware<ThreeDucksState, ThreeDucksAction>]
+    private let middlewares: [Middleware<State, Action>]
     // To call the middleware closure when dispatching an action
     // STEP 2: to save publisher subscriptions
     private var subscriptions: Set<AnyCancellable> = []
     
     // internal work of the store for dispatching actions
-    private func dispatchToUpdateState(_ currentState: ThreeDucksState, _ action: ThreeDucksAction) {
+    private func dispatchToUpdateState(_ currentState: State, _ action: Action) {
         // generate a new state using the reducer
         let newState = reducer(currentState, action)
         
@@ -57,17 +57,17 @@ class Store<State, Action>: ObservableObject {
     )
     
     // queue up the actions that are dispatched to update the state
-    func dispatchToQueueActions(_ action: ThreeDucksAction) {
+    func dispatchToQueueActions(_ action: Action) {
         queue.sync {
             self.dispatchToUpdateState(self.state, action)
         }
     }
     
     init(
-        initialState: ThreeDucksState,
+        initialState: State,
         // @escaping because Reducer will go out of scope when called
-        initialReducer: @escaping Reducer<ThreeDucksState, ThreeDucksAction>,
-        initialMiddlewares: [Middleware<ThreeDucksState, ThreeDucksAction>] = []
+        initialReducer: @escaping Reducer<State, Action>,
+        initialMiddlewares: [Middleware<State, Action>] = []
     ) {
         self.state = initialState
         self.reducer = initialReducer
